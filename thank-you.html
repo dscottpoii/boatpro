@@ -1,1 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - The Boat Pro Newsletter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .success-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #0c4a6e;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .guide-box {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .guide-box h2 {
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 20px 0;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .download-button:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        .next-steps {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+
+        .next-steps ol {
+            margin-left: 20px;
+        }
+
+        .next-steps li {
+            margin: 10px 0;
+            color: #78350f;
+        }
+
+        .upgrade-box {
+            background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%);
+            border: 2px solid #10b981;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .upgrade-box h2 {
+            color: #065f46;
+            margin-bottom: 15px;
+        }
+
+        .price-highlight {
+            font-size: 2.5em;
+            color: #059669;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        .savings-badge {
+            background: #065f46;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .upgrade-button {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 20px 0;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .upgrade-button:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        .features-list li {
+            margin: 8px 0;
+            color: #065f46;
+        }
+
+        .features-list li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .social-share {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .social-share h3 {
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            background: #f0f9ff;
+            color: #0c4a6e;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .share-btn:hover {
+            background: #e0f2fe;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .price-highlight {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="success-icon">🎉</div>
+        <h1>Success! Check Your Email</h1>
+        <p class="subtitle">Your FREE US Boat Show Do's & Don'ts Guide is on its way</p>
+
+        <div class="guide-box">
+            <h2>📧 What Happens Next?</h2>
+            <p style="color: #666; margin: 15px 0;">
+                We've just sent your comprehensive Boat Show Guide to your inbox. It should arrive within the next few minutes.
+            </p>
+            <a href="boat-show-guide.pdf" class="download-button" download>
+                📥 DOWNLOAD GUIDE NOW
+            </a>
+            <p style="font-size: 0.9em; color: #999; margin-top: 10px;">
+                (Backup link - in case email is delayed)
+            </p>
+        </div>
+
+        <div class="next-steps">
+            <h3>📋 Before You Go to the Show:</h3>
+            <ol>
+                <li><strong>Read the guide</strong> - Focus on the "First Hour Strategy" section</li>
+                <li><strong>Print the checklist</strong> - Page 8 has the essential items to bring</li>
+                <li><strong>Mark your calendar</strong> - Best times to visit are on page 3</li>
+                <li><strong>Set your budget</strong> - Use our negotiation tips on page 12</li>
+            </ol>
+        </div>
+
+        <div class="upgrade-box">
+            <h2>🚀 Want to Become a Better Boat Owner?</h2>
+            <p style="color: #065f46; margin: 15px 0;">
+                You're already getting the free guide. Why not unlock EVERYTHING for just pennies per week?
+            </p>
+            
+            <div class="savings-badge">⏰ BOAT SHOW SPECIAL - 60% OFF</div>
+            
+            <div class="price-highlight">
+                Only $19.99/year
+            </div>
+            
+            <p style="text-decoration: line-through; color: #666;">Regular $49.99</p>
+            <p style="color: #065f46; font-weight: 600; margin: 10px 0;">
+                Save $30.00 - That's just $1.67/month!
+            </p>
+
+            <ul class="features-list">
+                <li>Weekly expert boat reviews</li>
+                <li>DIY technical how-to articles</li>
+                <li>Navigation tips & charts</li>
+                <li>Professional boat delivery advice</li>
+                <li>Maintenance guides & checklists</li>
+                <li>Exclusive resources library</li>
+                <li>Member-only webinars</li>
+                <li>Priority email support</li>
+            </ul>
+
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
+                <input type="hidden" name="currency_code" value="USD">
+                <button type="submit" class="upgrade-button">
+                    ⚓ UPGRADE TO PREMIUM - $19.99
+                </button>
+            </form>
+
+            <p style="font-size: 0.85em; color: #065f46; margin-top: 10px;">
+                💳 Secure PayPal checkout • Cancel anytime • 30-day guarantee
+            </p>
+        </div>
+
+        <div class="social-share">
+            <h3>❤️ Love Free Stuff? Share with Fellow Boaters!</h3>
+            <div class="share-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_LANDING_PAGE_URL" class="share-btn" target="_blank">
+                    📘 Facebook
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=Free%20Boat%20Show%20Guide&url=YOUR_LANDING_PAGE_URL" class="share-btn" target="_blank">
+                    🐦 Twitter
+                </a>
+                <a href="mailto:?subject=Free Boat Show Guide&body=Check out this free guide: YOUR_LANDING_PAGE_URL" class="share-btn">
+                    📧 Email
+                </a>
+            </div>
+        </div>
+
+        <p class="footer-note">
+            ⚓ Welcome to The Boat Pro community!<br>
+            Questions? Email us at support@theboatpro.com
+        </p>
+    </div>
+
+    <script>
+        // Track conversion
+        console.log('Thank you page loaded - Free guide conversion');
+        
+        // Optional: Add email to localStorage for tracking
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        if (email) {
+            localStorage.setItem('boat_pro_email', email);
+        }
+    </script>
+</body>
+</html>
