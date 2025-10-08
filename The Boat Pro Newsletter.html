@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boat Pro Newsletter - News, Stories & Advice for Boat Owners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,40 600,20 T1200,10 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0c4a6e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0284c7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #0c4a6e;
+            margin-bottom: 50px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: #0c4a6e;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .newsletter-signup {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 80px 0;
+            border-radius: 15px;
+        }
+
+        .newsletter-signup h2 {
+            font-size: 2.5em;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-signup p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .signup-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .signup-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            border: 2px solid #0284c7;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .signup-form button {
+            padding: 15px 40px;
+            background: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signup-form button:hover {
+            background: #0369a1;
+        }
+
+        .testimonials {
+            background: #f8fafc;
+            padding: 60px 20px;
+            margin: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #0c4a6e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-logo">⚓ The Boat Pro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="archive.html">Archive</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>⚓ The Boat Pro Newsletter</h1>
+            <p>News, Stories, and Expert Advice for Recreational and Professional Boat Owners</p>
+            <a href="#signup" class="cta-button">Subscribe for Free</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">What You'll Get</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📰</div>
+                <h3>Latest Marine News</h3>
+                <p>Stay informed with the latest developments in the boating industry, new regulations, and maritime technology advances that affect boat owners.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛟</div>
+                <h3>Safety & Maintenance</h3>
+                <p>Expert guidance on boat maintenance, safety procedures, and equipment reviews to keep you and your vessel in top condition.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌊</div>
+                <h3>Real-World Stories</h3>
+                <p>Learn from experienced mariners through compelling stories, near-miss accounts, and valuable lessons from the water.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🧭</div>
+                <h3>Navigation Tips</h3>
+                <p>Improve your seamanship with practical navigation advice, weather interpretation, and route planning strategies.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Technical Tutorials</h3>
+                <p>Step-by-step guides for common repairs, upgrades, and DIY projects to enhance your boating experience and save money.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏖️</div>
+                <h3>Destination Guides</h3>
+                <p>Discover hidden anchorages, marina reviews, and must-visit cruising destinations for your next adventure on the water.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="newsletter-signup" id="signup">
+        <h2>Join Thousands of Smart Boat Owners</h2>
+        <p>Get weekly insights delivered straight to your inbox. No spam, unsubscribe anytime.</p>
+        <form class="signup-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe Now</button>
+        </form>
+    </div>
+
+    <div class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Readers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The Boat Pro Newsletter has become my go-to resource for maintenance tips and safety advice. Saved me hundreds in mechanic fees!"</p>
+                    <p class="testimonial-author">— Captain Mike, 25+ years experience</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a new boat owner, this newsletter has been invaluable. The tutorials are clear, practical, and have given me confidence on the water."</p>
+                    <p class="testimonial-author">— Sarah L., Recreational Sailor</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Well-researched articles and real stories from experienced mariners. It's like having a mentor in your inbox every week."</p>
+                    <p class="testimonial-author">— James K., Charter Captain</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 The Boat Pro Newsletter. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>

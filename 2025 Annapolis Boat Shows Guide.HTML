@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Annapolis Boat Shows Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a365d;
+            background: #ffffff;
+        }
+        
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            padding: 0.75in;
+            page-break-after: always;
+            position: relative;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .page:last-child {
+            page-break-after: avoid;
+        }
+        
+        @media print {
+            body { margin: 0; }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                width: 100%; 
+                padding: 0.5in;
+                min-height: auto;
+            }
+        }
+        
+        /* Cover Page */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #2d5aa0 0%, #1e40af 50%, #1e3a8a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 80 Q 30 60 40 80 T 60 80 T 80 80" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/><path d="M10 90 Q 20 70 30 90 T 50 90 T 70 90 T 90 90" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .cover .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cover .year {
+            font-size: 6rem;
+            font-weight: 800;
+            margin: 2rem 0;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cover .location {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .cover .dates {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        /* Headers */
+        h1 {
+            color: #1e40af;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            color: #1e40af;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+        }
+        
+        h3 {
+            color: #374151;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        /* Content Styling */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.25rem;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .info-card h3 {
+            margin: 0 0 0.75rem 0;
+            color: #1e40af;
+        }
+        
+        .price-table {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .price-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .price-table th {
+            background: #1e40af;
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .price-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .price-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .feature-list {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .feature-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '⚓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .map-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #64748b;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .show-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .show-card.powerboat {
+            border-color: #dc2626;
+            background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+        }
+        
+        .show-card.sailboat {
+            border-color: #2563eb;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+        }
+        
+        .show-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .show-card.powerboat h3 {
+            color: #dc2626;
+        }
+        
+        .show-card.sailboat h3 {
+            color: #2563eb;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #374151;
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0.75in;
+            left: 0.75in;
+            right: 0.75in;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Cover -->
+    <div class="page cover">
+        <div class="cover-content">
+            <h1>ANNAPOLIS BOAT SHOWS</h1>
+            <div class="subtitle">Professional Navigator's Guide</div>
+            <div class="year">2025</div>
+            <div class="location">Historic City Dock • Annapolis, Maryland</div>
+            <div class="dates">Powerboat Show: October 2-5 | Sailboat Show: October 9-12</div>
+        </div>
+    </div>
+
+    <!-- Page 2: Overview & Schedule -->
+    <div class="page">
+        <h1>Event Overview & Schedule</h1>
+        
+        <p>Welcome to the premier maritime events on the East Coast. For over five decades, the Annapolis Boat Shows have transformed the historic City Dock into the world's largest in-water display of boats and marine equipment. These internationally acclaimed shows attract tens of thousands of boating enthusiasts, industry professionals, and maritime adventurers to the sailing capital of America.</p>
+        
+        <div class="schedule-grid">
+            <div class="show-card powerboat">
+                <h3>US Powerboat Show</h3>
+                <div class="date-badge">October 2-5, 2025</div>
+                <p><strong>Preview Day:</strong> October 2nd ($45)<br>
+                <strong>Show Days:</strong> October 3-5 ($32)</p>
+                <p><em>Thursday - Sunday</em></p>
+            </div>
+            
+            <div class="show-card sailboat">
+                <h3>US Sailboat Show</h3>
+                <div class="date-badge">October 9-12, 2025</div>
+                <p><strong>Preview Day:</strong> October 9th ($55)<br>
+                <strong>Show Days:</strong> October 10-12 ($32)</p>
+                <p><em>Thursday - Sunday</em></p>
+            </div>
+        </div>
+        
+        <h2>Daily Schedule</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Show Hours</h3>
+                <p><strong>Monday - Saturday:</strong> 10:00 AM - 6:30 PM<br>
+                <strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Location</h3>
+                <p><strong>City Dock, Annapolis</strong><br>
+                "Ego Alley" transforms into a floating marina with hundreds of boats on display</p>
+            </div>
+        </div>
+        
+        <h2>What Makes These Shows Special</h2>
+        <div class="feature-list">
+            <ul>
+                <li>Largest in-water boat displays in the United States</li>
+                <li>Over 600 exhibitors showcasing latest marine technology</li>
+                <li>Walk aboard hundreds of boats from dinghies to mega yachts</li>
+                <li>Educational seminars and hands-on workshops</li>
+                <li>Direct access to manufacturers, dealers, and industry experts</li>
+                <li>Exclusive debuts of new boat models and marine innovations</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Page 2 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+
+    <!-- Page 3: Powerboat Show Details -->
+    <div class="page">
+        <h1>US Powerboat Show</h1>
+        <div class="date-badge" style="background: #dc2626;">October 2-5, 2025</div>
+        
+        <p>The United States Powerboat Show features the finest selection of powerboats, from luxurious motor yachts to high-performance fishing vessels. City Dock's floating docks create a temporary marina showcasing hundreds of boats in an unparalleled waterfront setting.</p>
+        
+        <h2>Featured Boat Categories</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Luxury Motor Yachts</h3>
+                <p>Sunseeker, Viking, Azimut, and other premium manufacturers showcasing their latest flagship models with cutting-edge design and technology.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Sport Fishing Vessels</h3>
+                <p>Center consoles, offshore fishing boats, and tournament-ready vessels from leading manufacturers specializing in angling excellence.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Cruisers & Trawlers</h3>
+                <p>Nordic Tugs, family cruisers, and long-distance trawlers perfect for coastal exploration and Great Loop adventures.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Performance Boats</h3>
+                <p>High-speed vessels, Nimbus performance cruisers, and recreational boats designed for thrill-seekers and weekend adventures.</p>
+            </div>
+        </div>
+        
+        <h2>Highlighted Exhibitors</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Seattle Yachts:</strong> Featuring award-winning Nimbus Boats and Nordic Tugs (Dock D)</li>
+                <li><strong>Sunseeker USA:</strong> Luxury performance motor yachts with cutting-edge design</li>
+                <li><strong>Sunsail:</strong> Award-winning charter yachts and vacation planning services</li>
+                <li><strong>Leading Outboard Manufacturers:</strong> Mercury, Yamaha, and Honda marine engines</li>
+                <li><strong>Electronics & Navigation:</strong> Garmin, Raymarine, and Furuno marine systems</li>
+                <li><strong>Marine Accessories:</strong> Comprehensive selection of boating gear and equipment</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>🚤 Featured Debut: 2025 Nimbus W-11</h3>
+            <p>Experience the stunning 40-foot weekender from Nimbus Boats featuring award-winning Scandinavian design, walkaround decks, folding side balconies, and twin Mercury outboards capable of 30-50 knot speeds. Perfect for coastal adventures and entertaining.</p>
+        </div>
+        
+        <h2>Educational Opportunities</h2>
+        <p>Attend expert-led seminars on powerboat handling, marine electronics, fishing techniques, and coastal navigation. Industry professionals offer hands-on demonstrations and personalized consultations throughout the show.</p>
+        
+        <div class="footer">
+            Page 3 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+
+    <!-- Page 4: Sailboat Show Details -->
+    <div class="page">
+        <h1>US Sailboat Show</h1>
+        <div class="date-badge" style="background: #2563eb;">October 9-12, 2025</div>
+        
+        <p>The United States Sailboat Show is the world's largest in-water sailboat exhibition, featuring floating docks lined with sailboats from manufacturers around the globe. This internationally acclaimed event serves seasoned sailors and newcomers alike with the latest in sailing technology and maritime innovation.</p>
+        
+        <h2>Boat Categories on Display</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Monohull Cruisers</h3>
+                <p>Performance cruisers, blue-water sailboats, and family-friendly vessels designed for comfort and seaworthiness in all conditions.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Multihulls</h3>
+                <p>Catamarans and trimarans offering speed, stability, and spacious accommodations for coastal and offshore sailing.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Racing Sailboats</h3>
+                <p>High-performance racing yachts, one-design classes, and competition vessels built for speed and precision.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Sailing Dinghies</h3>
+                <p>Small boats perfect for learning, day sailing, and recreational activities in protected waters.</p>
+            </div>
+        </div>
+        
+        <h2>2025 Gear Innovations</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Easysea Flipper:</strong> Revolutionary foldable winch handle that locks directly onto winch</li>
+                <li><strong>Mustang Survival Gear:</strong> New PFAS-free offshore foul-weather gear</li>
+                <li><strong>OGM LX LED Lighting:</strong> Dual-purpose steaming/deck lights from Weems & Plath</li>
+                <li><strong>Arntson Marine WindSun Hat:</strong> Designed to withstand 70 mph winds</li>
+                <li><strong>Advanced Solar Panels:</strong> Shade-tolerant panels for enhanced power generation</li>
+                <li><strong>Navigation Electronics:</strong> Latest GPS, radar, and communication equipment</li>
+            </ul>
+        </div>
+        
+        <h2>Educational Resources</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Cruising Education</h3>
+                <p>The Boat Galley launches new courses for aspiring cruisers, covering everything from provisioning to offshore passages.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Weather & Navigation</h3>
+                <p>Carolyn Shearlock's new book "Weather Basics for Boaters" provides essential guidance for informed weather decision-making.</p>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>⛵ Professional Development</h3>
+            <p>Connect with charter companies, sailing schools, and industry professionals. Explore career opportunities in the marine industry and expand your sailing knowledge through expert-led workshops and demonstrations.</p>
+        </div>
+        
+        <div class="footer">
+            Page 4 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+
+    <!-- Page 5: Pricing & Tickets -->
+    <div class="page">
+        <h1>Admission & Pricing</h1>
+        
+        <div class="price-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ticket Type</th>
+                        <th>Powerboat Show</th>
+                        <th>Sailboat Show</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>General Admission</strong></td>
+                        <td>$32</td>
+                        <td>$32</td>
+                        <td>Valid for single day entry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Preview Day</strong></td>
+                        <td>$45 (Oct 2)</td>
+                        <td>$55 (Oct 9)</td>
+                        <td>Early access with fewer crowds</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Children (7-15)</strong></td>
+                        <td>$10</td>
+                        <td>$10</td>
+                        <td>Discounted youth pricing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Children (6 & under)</strong></td>
+                        <td>FREE</td>
+                        <td>FREE</td>
+                        <td>No ticket required</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Military Personnel</strong></td>
+                        <td>$22 (Oct 5)</td>
+                        <td>$22 (Oct 12)</td>
+                        <td>Sunday only, ID required</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>Ticket Purchase Information</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎫 Official Ticket Sales</h3>
+                <p><strong>Online:</strong> annapolisboatshows.com/tickets/<br>
+                <strong>At Gate:</strong> Box Office at Dock Street<br>
+                <strong>Bus Stop:</strong> Exit at 2nd stop for ticket office</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>⚠️ Important Warning</h3>
+                <p><strong>Only purchase from official sources.</strong> Third-party ticket sellers may offer fraudulent tickets. Annapolis Boat Shows does not endorse resellers.</p>
+            </div>
+        </div>
+        
+        <h2>Money-Saving Tips</h2>
+        <div class="feature-list">
+            <ul>
+                <li>Watch for exhibitor promotional codes (up to 30% savings)</li>
+                <li>Follow social media accounts for flash ticket giveaways</li>
+                <li>Check with marine industry partners for complimentary passes</li>
+                <li>Military discount available on final Sunday of each show</li>
+                <li>Children 6 and under attend free with paid adult admission</li>
+                <li>Purchase tickets online in advance for digital convenience</li>
+            </ul>
+        </div>
+        
+        <h2>Group Sales & Corporate Packages</h2>
+        <p>Special rates available for yacht clubs, corporate groups, and marine industry organizations. Contact the show organizers directly for volume pricing and corporate hospitality packages.</p>
+        
+        <div class="highlight-box">
+            <h3>💡 Pro Tip: Preview Days</h3>
+            <p>While preview days cost more, they offer significant advantages: fewer crowds, more personal attention from exhibitors, better photo opportunities, and first access to exclusive boat debuts and special offers.</p>
+        </div>
+        
+        <div class="footer">
+            Page 5 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+
+    <!-- Page 6: Transportation & Logistics -->
+    <div class="page">
+        <h1>Transportation & Logistics</h1>
+        
+        <h2>Parking Solutions</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🅿️ Recommended: Noah Hillman Garage</h3>
+                <p><strong>Location:</strong> Gorman Street<br>
+                <strong>Rate:</strong> $24 per 24 hours<br>
+                <strong>Distance:</strong> 5-minute walk to show entrance<br>
+                <strong>Payment:</strong> Premium Parking app</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🚌 Public Transportation</h3>
+                <p><strong>Bus Service:</strong> Regular routes to City Dock<br>
+                <strong>Recommended Stop:</strong> Duke of Gloucester Street<br>
+                <strong>Taxi/Rideshare:</strong> Readily available throughout Annapolis</p>
+            </div>
+        </div>
+        
+        <h2>Show Entry Points</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Primary Entrance:</strong> Dock Street (main box office location)</li>
+                <li><strong>Secondary Entrance:</strong> Duke of Gloucester Street (typically less crowded)</li>
+                <li><strong>VIP/Preview Access:</strong> Special entrances for premium ticket holders</li>
+                <li><strong>Accessibility:</strong> ADA-compliant entrances and pathways throughout</li>
+                <li><strong>Security:</strong> Bag checks required at all entrances</li>
+            </ul>
+        </div>
+        
+        <h2>Getting to Annapolis</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>✈️ By Air</h3>
+                <p><strong>BWI Airport:</strong> 30 minutes via I-97<br>
+                <strong>DCA Airport:</strong> 45 minutes via US-50<br>
+                <strong>IAD Airport:</strong> 60 minutes via I-495</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🚗 By Car</h3>
+                <p><strong>From North:</strong> I-95 to I-495 to US-50 East<br>
+                <strong>From South:</strong> I-95 to I-495 to US-50 East<br>
+                <strong>From West:</strong> I-70 to I-695 to I-97 South</p>
+            </div>
+        </div>
+        
+        <h2>Accommodation Recommendations</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Historic Inns of Annapolis:</strong> Premium downtown locations</li>
+                <li><strong>Graduate Annapolis:</strong> Modern luxury near Naval Academy</li>
+                <li><strong>Hampton Inn & Suites:</strong> Reliable chain option with amenities</li>
+                <li><strong>Westin Annapolis:</strong> Full-service hotel in downtown core</li>
+                <li><strong>Airbnb/VRBO:</strong> Private homes and condos (book very early)</li>
+                <li><strong>Marina Hotels:</strong> Waterfront properties with boat access</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>🏨 Booking Strategy</h3>
+            <p><strong>Book accommodations 6+ months in advance.</strong> Annapolis hotels fill up quickly during boat show weeks. Consider staying in nearby towns like Edgewater or Severna Park if downtown options are unavailable.</p>
+        </div>
+        
+        <div class="footer">
+            Page 6 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+
+    <!-- Page 7: Dining & Entertainment -->
+    <div class="page">
+        <h1>Dining & Local Attractions</h1>
+        
+        <h2>Recommended Restaurants</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🦀 Cantler's Riverside Inn</h3>
+                <p><strong>Specialty:</strong> Chesapeake Bay seafood<br>
+                <strong>Must-try:</strong> Oysters Chesapeake<br>
+                <strong>Atmosphere:</strong> Authentic waterfront dining</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🍖 Red Hot and Blue</h3>
+                <p><strong>Specialty:</strong> BBQ and comfort food<br>
+                <strong>Service:</strong> Dine-in and takeout<br>
+                <strong>Price:</strong> Moderate, family-friendly</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🥞 Double T Diner</h3>
+                <p><strong>Specialty:</strong> Classic American diner<br>
+                <strong>Strengths:</strong> Affordable, great service<br>
+                <strong>Hours:</strong> Extended breakfast hours</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🦐 Boatyard Bar and Grill</h3>
+                <p><strong>Specialty:</strong> Upscale seafood<br>
+                <strong>Atmosphere:</strong> Refined waterfront dining<br>
+                <strong>Price:</strong> Higher-end, worth the splurge</p>
+            </div>
+        </div>
+        
+        <h2>Maritime Attractions</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>US Naval Academy:</strong> Historic campus and Naval Academy Museum</li>
+                <li><strong>Annapolis Maritime Museum:</strong> Local maritime history and culture</li>
+                <li><strong>Historic District Walking Tours:</strong> Colonial architecture and Revolutionary War sites</li>
+                <li><strong>Ego Alley:</strong> Famous harbor entrance perfect for boat watching</li>
+                <li><strong>Maryland State House:</strong> Oldest state capitol in continuous use</li>
+                <li><strong>Sailing Charters:</strong> Experience Chesapeake Bay firsthand</li>
+            </ul>
+        </div>
+        
+        <h2>Shopping & Marine Supplies</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🛒 Marine Supply Stores</h3>
+                <p><strong>West Marine:</strong> Major sponsor, comprehensive selection<br>
+                <strong>Fawcett Boat Supplies:</strong> Local institution since 1927<br>
+                <strong>Bacon Sails:</strong> Custom sails and rigging</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🎁 Local Shopping</h3>
+                <p><strong>Main Street:</strong> Boutiques and nautical gifts<br>
+                <strong>Historic District:</strong> Art galleries and antiques<br>
+                <strong>Dockside Markets:</strong> Fresh seafood and provisions</p>
+            </div>
+        </div>
+        
+        <h2>Evening Entertainment</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Historic Bars:</strong> McGarvey's Saloon, Pusser's Caribbean Grille</li>
+                <li><strong>Waterfront Lounges:</strong> Chart House, Blackwall Hitch</li>
+                <li><strong>Live Music Venues:</strong> Rams Head Tavern, Metropolitan Kitchen</li>
+                <li><strong>Harbor Cruises:</strong> Evening sailing and powerboat tours</li>
+                <li><strong>Special Events:</strong> Show-related parties and industry gatherings</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>🍽️ Dining Strategy</h3>
+            <p><strong>Make reservations early</strong> as restaurants fill up during boat show weeks. Consider dining off-peak hours or exploring restaurants slightly outside the downtown core for shorter waits and better value.</p>
+        </div>
+        
+        <div class="footer">
+            Page 7 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+
+    <!-- Page 8: Professional Tips & Resources -->
+    <div class="page">
+        <h1>Professional Navigator's Tips</h1>
+        
+        <h2>Maximizing Your Show Experience</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🗓️ Pre-Show Planning</h3>
+                <p>• Download show apps and maps<br>
+                • Research target boats/exhibitors<br>
+                • Schedule appointments with dealers<br>
+                • Check weather forecasts</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>👟 Day-of Preparation</h3>
+                <p>• Wear comfortable walking shoes<br>
+                • Bring sunscreen and water<br>
+                • Charge phone/camera batteries<br>
+                • Carry business cards</p>
+            </div>
+        </div>
+        
+        <h2>Industry Professional Benefits</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Networking Opportunities:</strong> Connect with manufacturers, dealers, and fellow professionals</li>
+                <li><strong>Product Launches:</strong> First access to new boat models and marine technology</li>
+                <li><strong>Industry Seminars:</strong> Technical sessions and market trend discussions</li>
+                <li><strong>Trade Meetings:</strong> Schedule private appointments with key suppliers</li>
+                <li><strong>Competitive Intelligence:</strong> Assess market positioning and pricing strategies</li>
+                <li><strong>Education Credits:</strong> Some seminars offer continuing education credits</li>
+            </ul>
+        </div>
+        
+        <h2>Technology & Innovation Focus</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🔋 Sustainable Technology</h3>
+                <p>Electric propulsion systems, solar panels, and eco-friendly marine products showcase the industry's environmental commitment.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>📱 Digital Integration</h3>
+                <p>Smart boat systems, IoT connectivity, and advanced navigation technology represent the future of boating.</p>
+            </div>
+        </div>
+        
+        <h2>Essential Contacts</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Show Information:</strong> annapolisboatshows.com</li>
+                <li><strong>Visitor Information:</strong> visitannapolis.org</li>
+                <li><strong>Emergency Services:</strong> Anne Arundel Medical Center</li>
+                <li><strong>Transportation:</strong> Annapolis Transit (410) 263-7964</li>
+                <li><strong>Weather Updates:</strong> National Weather Service Baltimore</li>
+                <li><strong>Harbor Information:</strong> Annapolis Harbor Master</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>🎯 Strategic Approach</h3>
+            <p><strong>Dedicate time strategically:</strong> Preview days for serious shopping, weekend days for networking and education. Consider attending both shows to fully appreciate the complete spectrum of recreational boating.</p>
+        </div>
+        
+        <h2>Post-Show Follow-Up</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📋 Documentation</h3>
+                <p>Organize brochures, business cards, and photos. Create comparison charts for boats and equipment of interest.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🤝 Relationship Building</h3>
+                <p>Follow up promptly with new contacts. Schedule sea trials and further discussions while interest is high.</p>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>⚓ Final Note</h3>
+            <p>The Annapolis Boat Shows represent more than a commercial event—they celebrate the maritime heritage and future innovation that define American boating culture. Whether you're expanding your fleet, upgrading equipment, or exploring new horizons, these shows provide unparalleled access to the marine industry's finest offerings.</p>
+        </div>
+        
+        <div class="footer">
+            Page 8 • 2025 Annapolis Boat Shows Professional Guide
+        </div>
+    </div>
+</body>
+</html>
