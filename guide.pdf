@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Boat Show Do's & Don'ts Guide - The Boat Pro</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: white;
+            font-size: 11pt;
+        }
+
+        /* Cover Page */
+        .cover {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: white;
+            padding: 60px 60px 80px;
+            text-align: center;
+            min-height: 9.5in;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+        }
+
+        .cover-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .cover-logo-container {
+            width: 100px;
+            height: 100px;
+        }
+
+        .cover-main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .cover-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            opacity: 0.95;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: white;
+            color: #0284c7;
+            padding: 12px 35px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-top: 30px;
+        }
+
+        .cover-footer {
+            margin-top: 40px;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        /* Table of Contents */
+        .toc {
+            padding: 40px 0;
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        .toc-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0284c7;
+        }
+
+        .toc-logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .toc h2 {
+            font-size: 2em;
+            color: #0c4a6e;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 1em;
+        }
+
+        .toc-title {
+            font-weight: 600;
+            color: #0c4a6e;
+        }
+
+        .toc-page {
+            color: #0284c7;
+            font-weight: 700;
+        }
+
+        /* Content Pages */
+        .page {
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+            page-break-inside: avoid;
+        }
+
+        .page-header-logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .page-header-text {
+            font-size: 9pt;
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        .page h2 {
+            font-size: 1.8em;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0284c7;
+            padding-bottom: 10px;
+            page-break-after: avoid;
+        }
+
+        .page h3 {
+            font-size: 1.3em;
+            color: #0284c7;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            page-break-after: avoid;
+        }
+
+        .page p {
+            margin-bottom: 12px;
+            text-align: justify;
+            font-size: 10.5pt;
+            line-height: 1.5;
+        }
+
+        .intro-box, .tip-box, .warning-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .intro-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0284c7;
+        }
+
+        .tip-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .tip-box strong {
+            color: #92400e;
+            font-size: 1.05em;
+        }
+
+        .warning-box {
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+        }
+
+        .warning-box strong {
+            color: #991b1b;
+            font-size: 1.05em;
+        }
+
+        .dos-list, .donts-list, .checklist, .standard-list {
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .dos-list li, .donts-list li, .checklist li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            list-style: none;
+        }
+
+        .dos-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #16a34a;
+        }
+
+        .donts-list li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #0284c7;
+        }
+
+        .standard-list {
+            list-style: disc;
+            margin-left: 30px;
+        }
+
+        .standard-list li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: #0c4a6e;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 0.9em;
+        }
+
+        .page-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 9pt;
+            page-break-inside: avoid;
+        }
+
+        .page-footer-logo {
+            width: 50px;
+            height: 50px;
+            opacity: 0.5;
+        }
+
+        .page-footer-text {
+            text-align: right;
+        }
+
+        @media print {
+            body { font-size: 11pt; }
+            .page { page-break-after: always; }
+            .cover, .toc { page-break-after: always; }
+            h2, h3 { page-break-after: avoid; }
+            .intro-box, .tip-box, .warning-box, table { page-break-inside: avoid; }
+            a { color: #0284c7; text-decoration: none; }
+        }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="cover">
+        <div class="cover-header">
+            <div class="cover-logo-container">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="white" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                    <text x="100" y="160" font-size="32" font-weight="bold" fill="white" text-anchor="middle">BOAT PRO</text>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="cover-main">
+            <h1>US Boat Show<br>Do's & Don'ts</h1>
+            <p class="cover-subtitle">Your Essential Guide to Navigating Boat Shows<br>Like a Seasoned Pro</p>
+            <div class="cover-badge">FREE GUIDE</div>
+        </div>
+        
+        <div class="cover-footer">
+            Expert Advice from 25+ Years in the Maritime Industry<br>
+            © 2025 The Boat Pro Newsletter
+        </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+        <div class="toc-header">
+            <svg class="toc-logo" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#153455" stroke-width="8" d="M 80,120 Q 140,40 220,100"/>
+                <path fill="none" stroke="#153455" stroke-width="8" d="M 220,100 L 180,140 Q 130,110 80,120 Z"/>
+                <path fill="#153455" d="M 90,110 Q 120,85 150,100 Q 175,112 195,105 L 190,115 Q 172,120 152,108 Q 125,95 98,118 Z"/>
+                <text x="150" y="175" font-size="42" font-weight="900" fill="#153455" text-anchor="middle" letter-spacing="2">BOAT PRO</text>
+            </svg>
+            <h2>Table of Contents</h2>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Introduction: Why This Guide Matters</span>
+            <span class="toc-page">3</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Before You Go: Essential Preparation</span>
+            <span class="toc-page">4</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">The Do's: What You Should Absolutely Do</span>
+            <span class="toc-page">5</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">The Don'ts: Common Mistakes to Avoid</span>
+            <span class="toc-page">7</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Strategic Navigation: How to Work the Show</span>
+            <span class="toc-page">9</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Negotiation Tactics: Getting the Best Deal</span>
+            <span class="toc-page">11</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Insider Tips: What Exhibitors Won't Tell You</span>
+            <span class="toc-page">12</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Your Boat Show Checklist</span>
+            <span class="toc-page">14</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">After the Show: Follow-Up Strategy</span>
+            <span class="toc-page">15</span>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="page">
+        <div class="page-header">
+            <svg class="page-header-logo" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#153455" stroke-width="8" d="M 80,120 Q 140,40 220,100"/>
+                <path fill="none" stroke="#153455" stroke-width="8" d="M 220,100 L 180,140 Q 130,110 80,120 Z"/>
+                <path fill="#153455" d="M 90,110 Q 120,85 150,100 Q 175,112 195,105 L 190,115 Q 172,120 152,108 Q 125,95 98,118 Z"/>
+                <text x="150" y="175" font-size="42" font-weight="900" fill="#153455" text-anchor="middle" letter-spacing="2">BOAT PRO</text>
+            </svg>
+            <div class="page-header-text">US Boat Show Do's & Don'ts</div>
+        </div>
+        
+        <h2>Introduction: Why This Guide Matters</h2>
+        
+        <div class="intro-box">
+            <p><strong>Welcome, fellow boating enthusiast!</strong></p>
+            <p>You're about to attend one of the most exciting events in the boating calendar—a US Boat Show. Whether you're a seasoned boat owner or a first-time buyer, these shows can be overwhelming. With hundreds of exhibitors, countless boats, and aggressive sales tactics, it's easy to make expensive mistakes or miss incredible opportunities.</p>
+        </div>
+
+        <p>I've attended boat shows for over 25 years—both as an exhibitor representing major brands and as a buyer looking for my next vessel. I've seen it all: the incredible deals that savvy buyers secure, and the costly mistakes that unprepared attendees make.</p>
+
+        <p>This guide distills decades of experience into actionable advice that will help you:</p>
+
+        <ul class="standard-list">
+            <li><strong>Save thousands of dollars</strong> by knowing when and how to negotiate</li>
+            <li><strong>Avoid common pitfalls</strong> that plague first-time show attendees</li>
+            <li><strong>Maximize your time</strong> by navigating efficiently</li>
+            <li><strong>Connect with the right people</strong> who can actually help you</li>
+            <li><strong>Make informed decisions</strong> instead of impulse purchases</li>
+        </ul>
+
+        <p>The boat shows held across the United States—from Miami to Seattle, Annapolis to Newport—attract millions of visitors and billions in sales each year. These events aren't just shopping trips; they're where industry trends emerge, where relationships are built, and where smart buyers secure deals that aren't available anywhere else.</p>
+
+        <div class="tip-box">
+            <p><strong>💡 Pro Tip:</strong> The average boat buyer who attends a show without preparation spends 30% more than necessary and misses out on better options simply because they don't know how to navigate the event effectively.</p>
+        </div>
+
+        <p>Whether you're shopping for your first dinghy or your dream yacht, this guide will give you the insider knowledge you need to approach the show with confidence, avoid costly mistakes, and potentially save thousands of dollars.</p>
+
+        <p>Let's dive in.</p>
+
+        <div class="page-footer">
+            <svg class="page-footer-logo" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#153455" stroke-width="8" d="M 80,120 Q 140,40 220,100"/>
+                <path fill="none" stroke="#153455" stroke-width="8" d="M 220,100 L 180,140 Q 130,110 80,120 Z"/>
+                <path fill="#153455" d="M 90,110 Q 120,85 150,100 Q 175,112 195,105 L 190,115 Q 172,120 152,108 Q 125,95 98,118 Z"/>
+                <text x="150" y="175" font-size="42" font-weight="900" fill="#153455" text-anchor="middle" letter-spacing="2">BOAT PRO</text>
+            </svg>
+            <div class="page-footer-text">The Boat Pro Newsletter | support@theboatpro.com | Page 3</div>
+        </div>
+    </div>
+
+    <!-- BEFORE YOU GO -->
+    <div class="page">
+        <div class="page-header">
+            <svg class="page-header-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-header-text">US Boat Show Do's & Don'ts</div>
+        </div>
+
+        <h2>Before You Go: Essential Preparation</h2>
+
+        <p>The difference between a successful boat show visit and a wasted day often comes down to preparation. Here's what you need to do before you even step foot on the show grounds.</p>
+
+        <h3><span class="section-number">1</span>Research the Show Layout</h3>
+        <p>Most major boat shows publish floor plans online weeks before the event. Download it, study it, and identify:</p>
+        <ul class="standard-list">
+            <li>Locations of brands/models you want to see</li>
+            <li>Position of seminar stages and presentation areas</li>
+            <li>Food courts and rest areas</li>
+            <li>Parking and entrance locations</li>
+        </ul>
+
+        <h3><span class="section-number">2</span>Set Clear Goals</h3>
+        <p>Ask yourself: Why am I attending this show?</p>
+        <ul class="standard-list">
+            <li><strong>Serious buyer:</strong> Ready to purchase within 6 months</li>
+            <li><strong>Research mode:</strong> Gathering information for future purchase</li>
+            <li><strong>Comparison shopping:</strong> Evaluating specific models</li>
+            <li><strong>Equipment/accessories:</strong> Looking for specific gear</li>
+        </ul>
+
+        <div class="tip-box">
+            <p><strong>💡 Pro Tip:</strong> If you're in "research mode," be upfront about it. Honest dealers will appreciate your transparency and give you better information rather than hard sales pitches.</p>
+        </div>
+
+        <h3><span class="section-number">3</span>Pre-Show Registration</h3>
+        <p>Most shows offer online pre-registration, which typically includes:</p>
+        <ul class="standard-list">
+            <li>Discounted or free admission</li>
+            <li>Skip-the-line entry</li>
+            <li>Access to exclusive buyer events</li>
+            <li>Special financing pre-approvals</li>
+        </ul>
+
+        <h3><span class="section-number">4</span>Get Your Finances in Order</h3>
+        <p>If you're a serious buyer, arrive with:</p>
+        <ul class="standard-list">
+            <li>Pre-approval for marine financing (if needed)</li>
+            <li>Clear understanding of your budget (including taxes, insurance, slip fees)</li>
+            <li>Trade-in value research on your current boat</li>
+            <li>Down payment ready if you find the right deal</li>
+        </ul>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Warning:</strong> Never rely solely on "show special" financing without reading the fine print. Some promotional rates include hidden fees or balloon payments.</p>
+        </div>
+
+        <h3><span class="section-number">5</span>Essential Items to Bring</h3>
+        <ul class="checklist">
+            <li>Comfortable walking shoes (you'll walk 3-5 miles)</li>
+            <li>Notebook or tablet for taking notes</li>
+            <li>Camera/smartphone for photos</li>
+            <li>Measuring tape (for checking storage dimensions)</li>
+            <li>Business cards (for follow-ups)</li>
+            <li>Water bottle and snacks</li>
+            <li>Small backpack for collecting brochures</li>
+            <li>Sunscreen (for outdoor shows)</li>
+        </ul>
+
+        <div class="page-footer">
+            <svg class="page-footer-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-footer-text">The Boat Pro Newsletter | support@theboatpro.com | Page 4</div>
+        </div>
+    </div>
+
+    <!-- THE DO'S -->
+    <div class="page">
+        <div class="page-header">
+            <svg class="page-header-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-header-text">US Boat Show Do's & Don'ts</div>
+        </div>
+
+        <h2>The Do's: What You Should Absolutely Do</h2>
+
+        <p>These are the proven strategies that will help you maximize your boat show experience and get the best possible outcome.</p>
+
+        <ul class="dos-list">
+            <li><strong>DO arrive early on weekdays.</strong> The show is less crowded, salespeople are more attentive, and you'll have more time on each boat without people rushing you. The best deals often happen on slower days when dealers are motivated.</li>
+
+            <li><strong>DO take detailed notes.</strong> After seeing 20 boats, they all blur together. Note model numbers, pricing (always get "out-the-door" pricing including taxes and fees), salesperson names, and specific features you liked or disliked.</li>
+
+            <li><strong>DO climb aboard every boat that interests you.</strong> Photos online don't show ergonomics, build quality, or how a boat actually feels. Sit in the captain's chair, check sight lines, open every hatch, and imagine yourself using it.</li>
+
+            <li><strong>DO ask tough questions.</strong> Inquire about common problems with the model, warranty coverage, delivery timelines, and dealer service capabilities. Good dealers welcome informed buyers.</li>
+
+            <li><strong>DO inspect build quality carefully.</strong> Look at gelcoat finish, hardware quality, wiring organization, and how clean the bilge is. These details reveal a manufacturer's attention to quality.</li>
+
+            <li><strong>DO attend manufacturer seminars.</strong> These presentations often reveal upcoming models, special show pricing, and technical details you won't get on the show floor.</li>
+
+            <li><strong>DO collect business cards from salespeople.</strong> Building relationships with multiple dealers gives you leverage when negotiating. The salesperson you meet today might offer you a better deal in two weeks.</li>
+
+            <li><strong>DO photograph spec sheets and pricing.</strong> You'll want to compare details later. Take clear photos of all documentation.</li>
+
+            <li><strong>DO check out used boats.</strong> Many shows feature brokerage boats that offer incredible value. A well-maintained 3-year-old boat can be 40% less than new.</li>
+
+            <li><strong>DO visit accessory vendors.</strong> Equipment and electronics are often heavily discounted at shows. This is where you can score great deals on chartplotters, anchors, safety gear, and more.</li>
+
+            <li><strong>DO negotiate seriously only when ready to buy.</strong> If you're genuinely ready to make a deal, let the dealer know. Serious buyers get serious attention and better pricing.</li>
+
+            <li><strong>DO verify everything in writing.</strong> If a salesperson promises something, get it documented. Verbal promises disappear after the show.</li>
+
+            <li><strong>DO test the electronics if they're powered up.</strong> Make sure you're comfortable with the interface and that all features work. A complex system you can't navigate is worthless.</li>
+
+            <li><strong>DO ask about dealer service capabilities.</strong> The best price means nothing if the dealer can't service your boat. Ask about technician certifications, parts availability, and average turnaround times.</li>
+
+            <li><strong>DO bring a knowledgeable friend.</strong> A second set of eyes catches things you miss. Plus, discussing options helps clarify your thinking.</li>
+        </ul>
+
+        <div class="tip-box">
+            <p><strong>💡 Pro Tip:</strong> The last day of the show (especially the last few hours) can bring rock-bottom prices. Dealers don't want to pay to transport boats back. However, selection is limited by this point.</p>
+        </div>
+
+        <div class="page-footer">
+            <svg class="page-footer-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-footer-text">The Boat Pro Newsletter | support@theboatpro.com | Page 5</div>
+        </div>
+    </div>
+
+    <!-- THE DO'S CONTINUED -->
+    <div class="page">
+        <div class="page-header">
+            <svg class="page-header-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-header-text">US Boat Show Do's & Don'ts</div>
+        </div>
+
+        <h2>The Do's: Continued</h2>
+
+        <ul class="dos-list">
+            <li><strong>DO check social media for show-specific deals.</strong> Exhibitors often announce flash sales or special promotions on their social channels during the show.</li>
+
+            <li><strong>DO compare apples to apples.</strong> When comparing boats, make sure you're including the same equipment packages. A "cheaper" boat might be stripped of essentials.</li>
+
+            <li><strong>DO ask about demo rides.</strong> Some shows offer on-water demonstrations. There's no substitute for actually feeling how a boat performs.</li>
+
+            <li><strong>DO network with other buyers.</strong> The person standing next to you might have valuable insights about a model or dealer they've researched.</li>
+
+            <li><strong>DO take breaks.</strong> Decision fatigue is real. After 2-3 hours of intense browsing, take a break, review your notes, and recharge.</li>
+
+            <li><strong>DO consider the total cost of ownership.</strong> Ask about insurance costs, typical fuel consumption, winterization costs, and maintenance schedules. The cheapest purchase can become the most expensive to own.</li>
+
+            <li><strong>DO get trade-in quotes from multiple dealers.</strong> Your current boat's value varies significantly between dealers based on their inventory needs.</li>
+        </ul>
+
+        <div class="intro-box">
+            <p><strong>Remember:</strong> A boat show is a marketplace. You have the power. Dealers compete for your business, and the informed buyer always gets the best deal.</p>
+        </div>
+
+        <div class="page-footer">
+            <svg class="page-footer-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-footer-text">The Boat Pro Newsletter | support@theboatpro.com | Page 6</div>
+        </div>
+    </div>
+
+    <!-- THE DON'TS -->
+    <div class="page">
+        <div class="page-header">
+            <svg class="page-header-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-header-text">US Boat Show Do's & Don'ts</div>
+        </div>
+
+        <h2>The Don'ts: Common Mistakes to Avoid</h2>
+
+        <p>These mistakes cost buyers thousands of dollars and years of regret. Learn from others' errors.</p>
+
+        <ul class="donts-list">
+            <li><strong>DON'T make impulse decisions.</strong> That "today only" special will likely be available tomorrow, next week, or at the next show. High-pressure sales tactics are designed to bypass your rational thinking.</li>
+
+            <li><strong>DON'T ignore the small print.</strong> Show contracts often include mandatory add-ons, delivery fees, and prep charges that balloon the price. Read everything before signing.</li>
+
+            <li><strong>DON'T stretch your budget.</strong> Boats cost money beyond the purchase price. Factor in slip fees, insurance, maintenance, fuel, and winterization. Many owners can afford to buy a boat but not to operate one.</li>
+
+            <li><strong>DON'T buy based on looks alone.</strong> A beautiful boat with poor ergonomics, uncomfortable seating, or inadequate storage becomes a nightmare to use. Function must match form.</li>
+
+            <li><strong>DON'T provide personal information casually.</strong> You'll be asked to "register to win" various prizes. This puts you on marketing lists. Use a dedicated email address for boat show registrations.</li>
+
+            <li><strong>DON'T skip the sea trial.</strong> If you're buying a used boat at a show, insist on a sea trial before finalizing. Many issues only appear underway.</li>
+
+            <li><strong>DON'T neglect to check dealer reputation.</strong> A great boat from a terrible dealer leads to misery. Research online reviews before committing.</li>
+
+            <li><strong>DON'T assume "show special" means best price.</strong> Sometimes regular dealer prices beat show specials. Always verify by calling dealers before the show.</li>
+
+            <li><strong>DON'T overlook insurance costs.</strong> Some boat models have significantly higher insurance premiums due to claims history. Call your insurance agent before buying.</li>
+
+            <li><strong>DON'T fall for "payment focus" selling.</strong> "Only $500/month" sounds great until you realize it's an 8-year loan at 9% interest. Always calculate total price paid.</li>
+
+            <li><strong>DON'T ignore your spouse's input.</strong> Boats are major purchases. If your partner hates the layout or isn't comfortable with it, you won't use it.</li>
+
+            <li><strong>DON'T buy more boat than you need.</strong> Bigger isn't always better. A 40-footer that stays docked because you're intimidated to operate it is worth less than a comfortable 28-footer you use constantly.</li>
+
+            <li><strong>DON'T forget about resale value.</strong> Some brands and models hold value much better than others. Research resale values before buying.</li>
+
+            <li><strong>DON'T sign anything you haven't fully read.</strong> This seems obvious but excitement clouds judgment. Read every line. If pressured to "sign now," walk away.</li>
+        </ul>
+
+        <div class="page-footer">
+            <svg class="page-footer-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-footer-text">The Boat Pro Newsletter | support@theboatpro.com | Page 7</div>
+        </div>
+    </div>
+
+    <!-- THE DON'TS CONTINUED -->
+    <div class="page">
+        <div class="page-header">
+            <svg class="page-header-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-header-text">US Boat Show Do's & Don'ts</div>
+        </div>
+
+        <h2>The Don'ts: Continued</h2>
+
+        <ul class="donts-list">
+            <li><strong>DON'T accept "as-is" without inspection.</strong> Used boats need professional surveys. A $500 survey can save you $50,000 in hidden problems.</li>
+
+            <li><strong>DON'T let "limited edition" sway you.</strong> Manufacturers create artificial scarcity. There will always be another boat.</li>
+
+            <li><strong>DON'T overlook the return policy.</strong> Some shows offer limited return windows. Others don't. Know your options.</li>
+
+            <li><strong>DON'T assume verbal promises are binding.</strong> "We'll throw in the electronics" must be in writing on your contract.</li>
+
+            <li><strong>DON'T rush the delivery inspection.</strong> When your boat arrives, inspect it thoroughly before signing acceptance. Document any damage immediately.</li>
+
+            <li><strong>DON'T buy without considering where you'll use it.</strong> A deep-V offshore boat is miserable in shallow bays. A flat-bottom bay boat is dangerous offshore. Match the boat to your waters.</li>
+
+            <li><strong>DON'T ignore trailer condition on used boats.</strong> Replacing a trailer can cost $5,000-$15,000. Factor this into your offer.</li>
+
+            <li><strong>DON'T forget about towing capacity.</strong> Make sure your vehicle can safely tow the boat. Exceeding towing capacity is dangerous and illegal.</li>
+        </ul>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Critical Warning:</strong> Never wire money or provide financial information at a boat show. All legitimate transactions go through established financing or dealership protocols. If someone asks for unusual payment methods, walk away immediately.</p>
+        </div>
+
+        <div class="page-footer">
+            <svg class="page-footer-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0c4a6e" d="M70,80 Q90,50 120,55 Q145,60 155,80 L150,85 Q142,70 122,63 Q95,58 78,85 L70,80 Z M75,100 Q85,88 100,82 Q110,78 122,82 Q132,86 138,98 L133,103 Q128,93 120,89 Q110,85 100,90 Q88,96 80,108 L75,100 Z"/>
+                <text x="100" y="160" font-size="28" font-weight="bold" fill="#0c4a6e" text-anchor="middle">BOAT PRO</text>
+            </svg>
+            <div class="page-footer-text">The Boat Pro Newsletter | support@theboatpro.com | Page 8</div>
+        </div>
+    </div>
+
+</body>
+</html>
