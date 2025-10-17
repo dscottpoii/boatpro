@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-Inclusive Winterization Guide</title>
+    <style>
+        @page {
+            margin: 0;
+            size: letter;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            color: #1a2332;
+            line-height: 1.6;
+        }
+        
+        .page {
+            width: 8.5in;
+            height: 11in;
+            padding: 0.75in;
+            page-break-after: always;
+            background: white;
+            position: relative;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #0f2847 0%, #1a3a5c 50%, #0f2847 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5in;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.03) 35px, rgba(255,255,255,.03) 70px);
+            animation: drift 60s linear infinite;
+        }
+        
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .anchor-icon {
+            font-size: 4em;
+            margin-bottom: 0.3em;
+            color: #c9a961;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover h1 {
+            font-size: 2.8em;
+            margin-bottom: 0.3em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cover .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 1.5em;
+            color: #c9a961;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover .vessel-size {
+            font-size: 1.1em;
+            margin-bottom: 2em;
+            padding: 0.8em 1.5em;
+            border: 2px solid #c9a961;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .cover .objective {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95em;
+            line-height: 1.7;
+            max-width: 600px;
+            padding: 1.5em;
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid #c9a961;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover .objective strong {
+            color: #c9a961;
+            display: block;
+            margin-bottom: 0.5em;
+            font-size: 1.1em;
+        }
+        
+        .header {
+            border-bottom: 3px solid #0f2847;
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .header h2 {
+            color: #0f2847;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        .header .section-number {
+            color: #c9a961;
+            font-size: 2.5em;
+            font-weight: 700;
+            float: left;
+            margin-right: 0.3em;
+            line-height: 0.9;
+        }
+        
+        .content-section {
+            margin-bottom: 1.5em;
+        }
+        
+        .content-section h3 {
+            color: #0f2847;
+            font-size: 1.3em;
+            margin-bottom: 0.7em;
+            margin-top: 1em;
+            font-family: 'Arial', sans-serif;
+            font-weight: 700;
+        }
+        
+        .content-section p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95em;
+            margin-bottom: 0.8em;
+            color: #2c3e50;
+        }
+        
+        .checklist {
+            list-style: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+        }
+        
+        .checklist li {
+            padding: 0.5em 0 0.5em 2em;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .checklist li::before {
+            content: '□';
+            position: absolute;
+            left: 0;
+            color: #c9a961;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        .warning-box {
+            background: #fff4e6;
+            border-left: 4px solid #f39c12;
+            padding: 1em;
+            margin: 1em 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+        }
+        
+        .warning-box strong {
+            color: #f39c12;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        
+        .tip-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 1em;
+            margin: 1em 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+        }
+        
+        .tip-box strong {
+            color: #3498db;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        
+        .success-box {
+            background: #e8f8f5;
+            border-left: 4px solid #27ae60;
+            padding: 1em;
+            margin: 1em 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+        }
+        
+        .success-box strong {
+            color: #27ae60;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0.5in;
+            left: 0.75in;
+            right: 0.75in;
+            padding-top: 0.5em;
+            border-top: 2px solid #c9a961;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75em;
+            color: #7f8c8d;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .toc {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .toc-item {
+            padding: 0.8em 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .toc-item span:first-child {
+            color: #0f2847;
+            font-weight: 600;
+        }
+        
+        .toc-item span:last-child {
+            color: #c9a961;
+            font-weight: 700;
+        }
+        
+        .two-column {
+            column-count: 2;
+            column-gap: 2em;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+        }
+        
+        .section-icon {
+            color: #c9a961;
+            font-size: 1.5em;
+            margin-right: 0.3em;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="page cover">
+        <div class="anchor-icon">⚓</div>
+        <h1>ALL-INCLUSIVE<br>WINTERIZATION GUIDE</h1>
+        <div class="subtitle">Power & Sailboats</div>
+        <div class="vessel-size">VESSELS UP TO 100 FEET</div>
+        <div class="objective">
+            <strong>Strategic Objective:</strong>
+            Ensure vessel integrity, system protection, and operational readiness post-winter. Preserve asset value and eliminate deferred maintenance surprises in Q2.
+        </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="page">
+        <div class="header">
+            <h2>Table of Contents</h2>
+        </div>
+        <div class="toc">
+            <div class="toc-item"><span>1. Planning & Pre-Work</span><span>03</span></div>
+            <div class="toc-item"><span>2. Systems-Level Winterization</span><span>03</span></div>
+            <div class="toc-item"><span>3. Structural & On-Deck Elements</span><span>05</span></div>
+            <div class="toc-item"><span>4. Electrical, Electronics & Instrumentation</span><span>06</span></div>
+            <div class="toc-item"><span>5. Interior & Inventory Management</span><span>07</span></div>
+            <div class="toc-item"><span>6. Cover & Storage Strategy</span><span>08</span></div>
+            <div class="toc-item"><span>7. Final Steps: QA & Lockdown</span><span>08</span></div>
+            <div class="toc-item"><span>8. Tips, Tricks & Innovations</span><span>09</span></div>
+            <div class="toc-item"><span>9. Why It Matters</span><span>10</span></div>
+            <div class="toc-item"><span>10. Pre-Winterization Fuel Level</span><span>11</span></div>
+            <div class="toc-item"><span>11. Holding Tank Pump-Out</span><span>12</span></div>
+        </div>
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 2</span>
+        </div>
+    </div>
+
+    <!-- PAGE 3: PLANNING & SYSTEMS -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">1</span>
+            <h2>Planning & Pre-Work</h2>
+        </div>
+        <div class="content-section">
+            <ul class="checklist">
+                <li>Begin winterization process 4–6 weeks before hard freeze dates</li>
+                <li>Decide on haul-out vs. in-water storage early in the planning phase</li>
+                <li>Maintain a detailed Winterization Logbook with dates, tasks, and observations</li>
+            </ul>
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 PRO TIP:</strong>
+            Create a digital checklist with timestamps and photos. This documentation proves invaluable for insurance claims and future reference.
+        </div>
+
+        <div class="header" style="margin-top: 2em;">
+            <span class="section-number">2</span>
+            <h2>Systems-Level Winterization</h2>
+        </div>
+
+        <div class="content-section">
+            <h3><span class="section-icon">⚙️</span>Mechanical Systems</h3>
+            <p><strong>Engines:</strong></p>
+            <ul class="checklist">
+                <li>Flush engines thoroughly with freshwater</li>
+                <li>Run engines to full operating temperature</li>
+                <li>Fog cylinders with corrosion inhibitor</li>
+                <li>Drain raw-water cooling system completely</li>
+                <li>Change engine oil and filters</li>
+                <li>Treat fuel with stabilizer per manufacturer specifications</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Generators:</strong></p>
+            <ul class="checklist">
+                <li>Follow identical winterization procedures as main engines</li>
+                <li>Run generator under load after fuel treatment to circulate stabilized fuel</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Transmissions:</strong></p>
+            <ul class="checklist">
+                <li>Drain and replace transmission gear oil</li>
+                <li>Inspect for metal particles indicating wear</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 3</span>
+        </div>
+    </div>
+
+    <!-- PAGE 4: PLUMBING & HVAC -->
+    <div class="page">
+        <div class="content-section">
+            <h3><span class="section-icon">💧</span>Plumbing & Water Systems</h3>
+            <p><strong>Freshwater Systems:</strong></p>
+            <ul class="checklist">
+                <li>Drain all freshwater lines and tanks completely</li>
+                <li>Blow out water lines with compressed air (max 30 PSI)</li>
+                <li>Fill system with -50°F non-toxic marine antifreeze</li>
+                <li>Run antifreeze through all faucets, showers, and fixtures until pink fluid appears</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Heads & Sanitation:</strong></p>
+            <ul class="checklist">
+                <li>Pump out holding tanks at certified facility</li>
+                <li>Flush head systems thoroughly with freshwater</li>
+                <li>Pump antifreeze through head and macerator</li>
+                <li>Add extra antifreeze to holding tank (1-2 gallons)</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Raw Water Systems:</strong></p>
+            <ul class="checklist">
+                <li>Close all through-hull seacocks and tag with "CLOSED" labels</li>
+                <li>Drain raw water strainers and pump systems</li>
+                <li>Fill with antifreeze via deck fill or raw water strainer</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ CRITICAL:</strong>
+                Never use automotive antifreeze in marine systems. Use only non-toxic, marine-grade propylene glycol antifreeze rated to -50°F minimum.
+            </div>
+
+            <h3 style="margin-top: 1.5em;"><span class="section-icon">❄️</span>HVAC & Refrigeration</h3>
+            <ul class="checklist">
+                <li>Clean all HVAC filters and evaporator coils</li>
+                <li>Defrost and thoroughly clean all refrigeration units</li>
+                <li>Prop open refrigerator and freezer doors</li>
+                <li>Place desiccants in enclosed HVAC spaces</li>
+                <li>Consider running electric dehumidifier on timer if shore power available</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 4</span>
+        </div>
+    </div>
+
+    <!-- PAGE 5: STRUCTURAL -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">3</span>
+            <h2>Structural & On-Deck Elements</h2>
+        </div>
+
+        <div class="content-section">
+            <h3><span class="section-icon">🚢</span>Hull & Exterior</h3>
+            <ul class="checklist">
+                <li>Inspect hull for blisters, cracks, or gelcoat damage</li>
+                <li>Clean hull thoroughly; remove marine growth</li>
+                <li>Wax topsides for UV and moisture protection</li>
+                <li>Touch up any exposed gelcoat chips or scratches</li>
+                <li>Apply protective coating to brightwork (teak oil or varnish)</li>
+            </ul>
+
+            <h3><span class="section-icon">⛵</span>Sails & Rigging (Sailboats)</h3>
+            <ul class="checklist">
+                <li>Remove all sails and store completely dry in climate-controlled space</li>
+                <li>Inspect sails for tears, UV damage, and chafe</li>
+                <li>Wash sails with mild soap before storage if soiled</li>
+                <li>Inspect standing rigging for corrosion, cracks, or meat hooks</li>
+                <li>Check turnbuckles and cotter pins for integrity</li>
+                <li>Lubricate all deck hardware, winches, and blocks</li>
+                <li>Remove running rigging if possible or secure tightly to minimize movement</li>
+            </ul>
+
+            <h3><span class="section-icon">⚙️</span>Deck Hardware</h3>
+            <ul class="checklist">
+                <li>Lubricate all hinges, latches, and moving parts with marine grease</li>
+                <li>Remove canvas enclosures and bimini tops; store dry</li>
+                <li>Secure all loose equipment or remove from deck</li>
+                <li>Check windlass and anchor chain; rinse and lubricate</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 PRO TIP:</strong>
+                Take photos of your rigging setup before disassembly. This documentation speeds up spring commissioning and ensures nothing is overlooked.
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 5</span>
+        </div>
+    </div>
+
+    <!-- PAGE 6: ELECTRICAL -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">4</span>
+            <h2>Electrical, Electronics & Instrumentation</h2>
+        </div>
+
+        <div class="content-section">
+            <h3><span class="section-icon">🔋</span>Battery Management</h3>
+            <ul class="checklist">
+                <li>Fully charge all battery banks before storage</li>
+                <li>Disconnect batteries or install battery switches to OFF position</li>
+                <li>Connect batteries to smart trickle chargers or solar maintainers</li>
+                <li>Check electrolyte levels in flooded batteries; top off with distilled water</li>
+                <li>Clean battery terminals and apply protective coating</li>
+                <li>Record battery voltage and date for spring comparison</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANT:</strong>
+                Lithium batteries require different winter storage protocols. Consult manufacturer specifications for optimal charge levels (typically 50-60%) during storage.
+            </div>
+
+            <h3><span class="section-icon">📡</span>Electronics</h3>
+            <ul class="checklist">
+                <li>Remove all portable electronics (VHF handhelds, tablets, laptops)</li>
+                <li>Backup chartplotter data and waypoints to computer or cloud</li>
+                <li>Remove GPS chartplotter display if easily removable</li>
+                <li>Cover fixed electronics with protective covers</li>
+                <li>Place desiccant packets near sensitive electronics</li>
+                <li>Disconnect radar and AIS antennas if subject to ice loading</li>
+            </ul>
+
+            <h3><span class="section-icon">⚡</span>Shore Power & Electrical Systems</h3>
+            <ul class="checklist">
+                <li>Inspect shore power cord for damage; test GFCI function</li>
+                <li>Consider maintaining shore power for battery chargers and dehumidifiers</li>
+                <li>Turn off unnecessary circuit breakers</li>
+                <li>Test bilge pump float switches; ensure pumps operational if powered</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 6</span>
+        </div>
+    </div>
+
+    <!-- PAGE 7: INTERIOR -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">5</span>
+            <h2>Interior & Inventory Management</h2>
+        </div>
+
+        <div class="content-section">
+            <h3><span class="section-icon">📦</span>Remove & Protect</h3>
+            <ul class="checklist">
+                <li>Remove all perishable food items and beverages</li>
+                <li>Remove valuables, documents, and personal items</li>
+                <li>Remove all linens, cushions, and soft goods; store dry</li>
+                <li>Remove fire extinguishers for annual inspection/recharge</li>
+                <li>Remove flares and pyrotechnics (check expiration dates)</li>
+                <li>Empty and clean all ice makers and water dispensers</li>
+            </ul>
+
+            <h3><span class="section-icon">🌬️</span>Ventilation & Moisture Control</h3>
+            <ul class="checklist">
+                <li>Open all lockers, drawers, and cabinet doors for air circulation</li>
+                <li>Prop open hanging lockers and lazarettes</li>
+                <li>Place moisture absorbers (DampRid, Eva-Dry) throughout vessel</li>
+                <li>Consider rechargeable dehumidifier on timer if shore power available</li>
+                <li>Open dorade vents if vessel is covered</li>
+                <li>Clean and vacuum entire interior to remove organic material</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>✓ BEST PRACTICE:</strong>
+                Create a detailed inventory list with photos of what's been removed and where it's stored. This eliminates spring commissioning confusion and protects against theft claims.
+            </div>
+
+            <h3><span class="section-icon">🧼</span>Deep Cleaning</h3>
+            <ul class="checklist">
+                <li>Clean and vacuum all surfaces, carpets, and upholstery</li>
+                <li>Wipe down all surfaces with marine-safe mildew inhibitor</li>
+                <li>Clean galley thoroughly; leave stove and refrigerator doors open</li>
+                <li>Empty and clean all trash receptacles</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 7</span>
+        </div>
+    </div>
+
+    <!-- PAGE 8: COVER & QA -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">6</span>
+            <h2>Cover & Storage Strategy</h2>
+        </div>
+
+        <div class="content-section">
+            <h3><span class="section-icon">🛡️</span>Protection Options</h3>
+            
+            <p><strong>Shrink Wrap (Recommended):</strong></p>
+            <ul class="checklist">
+                <li>Provides superior weather protection and UV resistance</li>
+                <li>Must include ventilation ports to prevent condensation</li>
+                <li>Support frame required to prevent pooling and ice damage</li>
+                <li>Professional installation recommended for vessels over 30 feet</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Canvas Covers:</strong></p>
+            <ul class="checklist">
+                <li>Heavy-duty marine canvas with proper support framework</li>
+                <li>Must be properly secured with straps (not bungees for winter)</li>
+                <li>Ensure adequate ventilation to prevent condensation</li>
+                <li>Inspect and tighten regularly throughout winter</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 VENTILATION IS CRITICAL:</strong>
+                Regardless of cover type, proper ventilation prevents condensation buildup which causes more damage than exposure to elements.
+            </div>
+        </div>
+
+        <div class="header" style="margin-top: 2em;">
+            <span class="section-number">7</span>
+            <h2>Final Steps: QA & Lockdown</h2>
+        </div>
+
+        <div class="content-section">
+            <ul class="checklist">
+                <li>Confirm all through-hull seacocks are closed and tagged</li>
+                <li>Place "DO NOT OPERATE" tags on engine ignition and starter</li>
+                <li>Test bilge pump operation one final time</li>
+                <li>Verify all hatches, ports, and doors are secured</li>
+                <li>Lock all entryways and secure companionway</li>
+                <li>Document final condition with dated photographs</li>
+                <li>Leave emergency contact information with marina or storage facility</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 8</span>
+        </div>
+    </div>
+
+    <!-- PAGE 9: TIPS & TRICKS -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">8</span>
+            <h2>Tips, Tricks & Innovations</h2>
+        </div>
+
+        <div class="content-section">
+            <h3><span class="section-icon">💡</span>Modern Solutions</h3>
+            
+            <p><strong>Digital Documentation:</strong></p>
+            <ul class="checklist">
+                <li>Use QR code tags linked to digital checklists for each system</li>
+                <li>Create photo documentation timeline throughout winterization process</li>
+                <li>Store all documentation in cloud storage for insurance purposes</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Remote Monitoring:</strong></p>
+            <ul class="checklist">
+                <li>Install Bluetooth temperature and humidity sensors</li>
+                <li>Use cellular-connected bilge pump monitors for in-water storage</li>
+                <li>Consider battery-powered security cameras for theft deterrence</li>
+            </ul>
+
+            <p style="margin-top: 1em;"><strong>Preventive Maintenance During Downtime:</strong></p>
+            <ul class="checklist">
+                <li>Descale heat exchangers and raw water cooling systems</li>
+                <li>Send oil samples for analysis to detect engine wear early</li>
+                <li>Schedule electronics calibration and software updates</li>
+                <li>Arrange for spring bottom paint application during storage</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>✓ TIME-SAVING TIP:</strong>
+                Use winter months to schedule service appointments for spring commissioning. Quality marine service providers book up early in Q1.
+            </div>
+
+            <p style="margin-top: 1em;"><strong>System Labeling:</strong></p>
+            <ul class="checklist">
+                <li>Label all through-hulls with function and normal position</li>
+                <li>Create laminated system diagrams for future reference</li>
+                <li>Use color-coded tags for different systems (fuel, water, electrical)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 9</span>
+        </div>
+    </div>
+
+    <!-- PAGE 10: WHY IT MATTERS -->
+    <div class="page">
+        <div class="header">
+            <span class="section-number">9</span>
+            <h2>Why It Matters</h2>
+        </div>
+
+        <div class="content-section">
+            <p style="font-family: Arial, sans-serif; font-size: 0.95em; margin-bottom: 1.5em;">Understanding the science and reasoning behind winterization procedures ensures proper execution and appreciation for each critical step.</p>
+
+            <h3><span class="section-icon">⚙️</span>Engine Fogging</h3>
+            <p>Prevents corrosion in engine cylinders during storage. Moisture in air reacts with combustion residue to create acid, which etches cylinder walls. Fogging oil creates protective barrier preventing this electrochemical reaction.</p>
+
+            <h3><span class="section-icon">⛽</span>Fuel Stabilization</h3>
+            <p>Prevents fuel degradation and microbial growth (diesel bug). Modern ethanol-blended gasoline absorbs water and degrades within 30 days. Diesel fuel supports bacterial and fungal growth in presence of water. Stabilizers contain antioxidants and biocides preventing both issues.</p>
+
+            <h3><span class="section-icon">❄️</span>System Drainage & Antifreeze</h3>
+            <p>Water expands 9% when freezing, generating forces exceeding 25,000 PSI—sufficient to crack engine blocks, split pipes, and destroy pumps. Even small amounts of residual water can cause catastrophic damage. Antifreeze lowers freezing point while providing corrosion inhibitors.</p>
+
+            <h3><span class="section-icon">💨</span>Dehumidification</h3>
+            <p>Prevents mildew growth and corrosion. Mold spores are omnipresent and require only moisture and organic material to proliferate. Humidity above 60% promotes mildew; below 50% inhibits growth. Corrosion of metals accelerates dramatically above 60% relative humidity.</p>
+
+            <h3><span class="section-icon">📋</span>Documentation & Quality Control</h3>
+            <p>Detailed documentation serves multiple purposes: insurance claims require proof of proper maintenance, resale value depends on verifiable service history, and systematic checklists prevent oversight of critical procedures. Professional operations maintain detailed logs for liability protection and quality assurance.</p>
+
+            <div class="warning-box" style="margin-top: 1.5em;">
+                <strong>⚠️ COST OF FAILURE:</strong>
+                A single frozen engine block can cost $15,000-$40,000 to replace. Proper winterization costing $1,000-$3,000 provides exceptional ROI for vessel preservation.
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Premium Yacht Services</span>
+            <span>Page 10</span>
+        </div>
+    </div>
+
+    <!-- PAGE
