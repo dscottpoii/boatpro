@@ -1,0 +1,131 @@
+# The Boat Pro - Git Ignore File
+
+# =====================================
+# Configuration Files (Sensitive Data)
+# =====================================
+# config.js contains API keys and credentials
+# Never commit this file to the repository
+config.js
+
+# =====================================
+# Operating System Files
+# =====================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# =====================================
+# Editor/IDE Files
+# =====================================
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# =====================================
+# Node.js (if you add build tools later)
+# =====================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# =====================================
+# Build/Distribution Files
+# =====================================
+dist/
+build/
+*.min.js
+*.min.css
+*.map
+
+# =====================================
+# Environment Files
+# =====================================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# =====================================
+# Logs
+# =====================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =====================================
+# Temporary Files
+# =====================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.cache
+
+# =====================================
+# Backup Files
+# =====================================
+*.bak
+*.backup
+*.old
+*~
+
+# =====================================
+# Testing
+# =====================================
+coverage/
+.nyc_output/
+*.lcov
+
+# =====================================
+# Documentation (Generated)
+# =====================================
+# Keep manually created docs, ignore generated ones
+# docs/generated/
+
+# =====================================
+# Custom - Project Specific
+# =====================================
+# Add any project-specific files to ignore here
+
+# Keep config.example.js for reference
+!config.example.js

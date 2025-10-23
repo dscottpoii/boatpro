@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<!-- Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-XXXXXXXXXX');
-   </script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Boat Pro Newsletter - FREE Boat Show Guide + Special Offer</title>
     <meta name="description" content="Get your FREE US Boat Show Do's and Don'ts Guide plus exclusive insider tips. Special boat show pricing: $19.99/year (60% off)">
+
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <style>
         * {
             margin: 0;
@@ -510,11 +511,17 @@
 
                 <div class="email-form" id="email-form">
                     <h3 style="text-align: center; color: #0c4a6e; margin-bottom: 20px;">Get Instant Access - Enter Your Email</h3>
+                    <!-- TODO: Replace YOUR_FORMSPREE_ID with your actual Formspree form ID -->
                     <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email Address" required>
+                        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #334155;">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name" aria-required="true">
+
+                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #334155;">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" aria-required="true">
+
                         <input type="hidden" name="_subject" value="New Boat Show Guide Download">
-                        <input type="hidden" name="_next" value="https://yourusername.github.io/boat-pro-landing/thank-you.html">
+                        <!-- TODO: Update this URL to match your actual GitHub Pages domain or use relative path /thank-you.html -->
+                        <input type="hidden" name="_next" value="/thank-you.html">
                         <button type="submit">📥 DOWNLOAD FREE GUIDE NOW</button>
                     </form>
                     <p class="privacy-note">🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
@@ -562,11 +569,12 @@
                         <li>Priority email support</li>
                     </ul>
 
+                    <!-- TODO: Replace YOUR_PAYPAL_BUTTON_ID with your actual PayPal hosted button ID -->
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
                         <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="cta-button">
+                        <button type="submit" class="cta-button" aria-label="Subscribe to Premium for $19.99 per year">
                             🚀 START PREMIUM NOW - $19.99
                         </button>
                     </form>

@@ -289,11 +289,12 @@
                 <li>Priority email support</li>
             </ul>
 
+            <!-- TODO: Replace YOUR_PAYPAL_BUTTON_ID with your actual PayPal hosted button ID -->
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
                 <input type="hidden" name="currency_code" value="USD">
-                <button type="submit" class="upgrade-button">
+                <button type="submit" class="upgrade-button" aria-label="Upgrade to Premium Subscription for $19.99 per year">
                     ⚓ UPGRADE TO PREMIUM - $19.99
                 </button>
             </form>
@@ -306,13 +307,14 @@
         <div class="social-share">
             <h3>❤️ Love Free Stuff? Share with Fellow Boaters!</h3>
             <div class="share-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_LANDING_PAGE_URL" class="share-btn" target="_blank">
+                <!-- TODO: Replace YOUR_LANDING_PAGE_URL with your actual GitHub Pages URL -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_LANDING_PAGE_URL" class="share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
                     📘 Facebook
                 </a>
-                <a href="https://twitter.com/intent/tweet?text=Free%20Boat%20Show%20Guide&url=YOUR_LANDING_PAGE_URL" class="share-btn" target="_blank">
+                <a href="https://twitter.com/intent/tweet?text=Free%20Boat%20Show%20Guide&url=YOUR_LANDING_PAGE_URL" class="share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
                     🐦 Twitter
                 </a>
-                <a href="mailto:?subject=Free Boat Show Guide&body=Check out this free guide: YOUR_LANDING_PAGE_URL" class="share-btn">
+                <a href="mailto:?subject=Free Boat Show Guide&body=Check out this free guide: YOUR_LANDING_PAGE_URL" class="share-btn" aria-label="Share via Email">
                     📧 Email
                 </a>
             </div>

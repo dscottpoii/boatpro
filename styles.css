@@ -1,0 +1,666 @@
+/* ================================================
+   The Boat Pro - Main Stylesheet
+   ================================================ */
+
+/* ================================================
+   1. CSS Reset & Base Styles
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================================
+   2. Layout & Container
+   ================================================ */
+.page {
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================================================
+   3. Hero Section
+   ================================================ */
+.hero-section {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,40 600,20 T1200,10 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ================================================
+   4. Header Styles
+   ================================================ */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.icon-wrapper {
+    margin-bottom: 20px;
+}
+
+.anchor-icon {
+    width: 60px;
+    height: 60px;
+    stroke: white;
+    stroke-width: 2;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.main-title {
+    font-size: 3em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    opacity: 0.95;
+}
+
+.tagline {
+    font-size: 1.1em;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* ================================================
+   5. Content Card
+   ================================================ */
+.content-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+/* ================================================
+   6. Benefits Column
+   ================================================ */
+.benefits-column {
+    padding: 50px 40px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-right: 1px solid #e2e8f0;
+}
+
+.section-title {
+    font-size: 2em;
+    color: #0c4a6e;
+    margin-bottom: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.benefits-list {
+    margin-bottom: 40px;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+.check-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    stroke: #0284c7;
+    stroke-width: 2.5;
+    margin-top: 2px;
+}
+
+.benefit-item h3 {
+    font-size: 1.15em;
+    color: #0c4a6e;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.benefit-item p {
+    color: #64748b;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* ================================================
+   7. Pricing Box
+   ================================================ */
+.pricing-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #0284c7;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+
+.pricing-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.ship-icon {
+    width: 32px;
+    height: 32px;
+    stroke: #0284c7;
+    stroke-width: 2;
+}
+
+.pricing-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #0c4a6e;
+}
+
+.pricing-description {
+    color: #64748b;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.pricing-amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.price-large {
+    font-size: 3em;
+    font-weight: 800;
+    color: #0284c7;
+    line-height: 1;
+}
+
+.price-strike {
+    font-size: 1.2em;
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+.price-period {
+    font-size: 1em;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.pricing-note {
+    color: #64748b;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* ================================================
+   8. Form Column
+   ================================================ */
+.form-column {
+    padding: 50px 40px;
+    background: white;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.download-icon {
+    width: 48px;
+    height: 48px;
+    stroke: #0284c7;
+    stroke-width: 2;
+    margin: 0 auto 15px;
+}
+
+.form-header h3 {
+    font-size: 1.8em;
+    color: #0c4a6e;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: #64748b;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* ================================================
+   9. Form Elements
+   ================================================ */
+.form-container {
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* ================================================
+   10. Buttons
+   ================================================ */
+.submit-button,
+.download-button,
+.cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.submit-button:hover,
+.download-button:hover,
+.cta-button:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+}
+
+.submit-button:active,
+.download-button:active,
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.mail-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+/* ================================================
+   11. Form Disclaimer & Privacy
+   ================================================ */
+.form-disclaimer {
+    font-size: 0.8em;
+    color: #64748b;
+    line-height: 1.5;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.privacy-note {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.privacy-note p {
+    font-size: 0.9em;
+    color: #64748b;
+}
+
+/* ================================================
+   12. Trust Indicators
+   ================================================ */
+.trust-indicators {
+    text-align: center;
+    padding: 30px 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.trust-indicators p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95em;
+}
+
+/* ================================================
+   13. Success Page
+   ================================================ */
+.success-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.success-card {
+    background: white;
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.success-icon-wrapper {
+    margin-bottom: 30px;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    stroke: #10b981;
+    stroke-width: 2;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.success-title {
+    font-size: 2.5em;
+    color: #0c4a6e;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.success-message {
+    font-size: 1.15em;
+    color: #64748b;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.success-message strong {
+    color: #0c4a6e;
+    font-weight: 600;
+}
+
+.success-pricing {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #0284c7;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.success-pricing-text {
+    color: #64748b;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+.success-price-display {
+    margin: 20px 0;
+}
+
+.success-price {
+    font-size: 3em;
+    font-weight: 800;
+    color: #0284c7;
+}
+
+.success-period {
+    font-size: 1.2em;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.success-pricing-note {
+    font-size: 0.85em;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+/* ================================================
+   14. Error Messages
+   ================================================ */
+.error-message {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group input.error {
+    border-color: #dc2626;
+}
+
+.form-group input.error:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* ================================================
+   15. Loading State
+   ================================================ */
+.submit-button.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.submit-button.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================================
+   16. Responsive Design
+   ================================================ */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-column {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 40px 30px;
+    }
+
+    .form-column {
+        padding: 40px 30px;
+    }
+
+    .main-title {
+        font-size: 2.2em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+
+    .section-title {
+        font-size: 1.6em;
+    }
+
+    .price-large {
+        font-size: 2.5em;
+    }
+
+    .success-card {
+        padding: 40px 30px;
+    }
+
+    .success-title {
+        font-size: 2em;
+    }
+
+    .success-price {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 40px 15px 60px;
+    }
+
+    .benefits-column,
+    .form-column {
+        padding: 30px 20px;
+    }
+
+    .main-title {
+        font-size: 1.8em;
+    }
+
+    .anchor-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .success-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ================================================
+   17. Accessibility Improvements
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
