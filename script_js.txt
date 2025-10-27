@@ -1,0 +1,169 @@
+// Configuration - UPDATE THESE VALUES
+const CONFIG = {
+    // Formspree form endpoint (sign up at formspree.io)
+    formspreeEndpoint: 'https://formspree.io/f/movkvgkl',
+    
+    
+    // PDF file name (must be in same directory or provide full URL)
+    pdfFileName: 'guide.pdf',
+    
+    // Mailchimp settings (optional)
+    mailchimpEnabled: false,
+    mailchimpUrl: 'YOUR_MAILCHIMP_URL',
+};
+
+// DOM Elements
+const landingPage = document.getElementById('landing-page');
+const successPage = document.getElementById('success-page');
+const emailInput = document.getElementById('email');
+const submitBtn = document.getElementById('submit-btn');
+const userEmailDisplay = document.getElementById('user-email');
+
+// Email validation
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Handle form submission
+async function handleSubmit() {
+    const email = emailInput.value.trim();
+    
+    // Validate email
+    if (!email) {
+        alert('Please enter your email address');
+        return;
+    }
+    
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    submitBtn.innerHTML = '<span>Processing...</span>';
+    
+    try {
+        // Send to Formspree (handles email delivery)
+        await sendToFormspree(email);
+        
+        // Optional: Add to Mailchimp
+        if (CONFIG.mailchimpEnabled) {
+            await addToMailchimp(email);
+        }
+        
+        // Store email for success page
+        userEmailDisplay.textContent = email;
+        
+        // Show success page
+        showSuccessPage();
+        
+        // Optional: Open Stripe payment link in new tab
+        // Uncomment the line below when you have your Stripe link ready
+        // window.open(CONFIG.stripePaymentLink, '_blank');
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again or contact support.');
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        submitBtn.innerHTML = `
+            <svg class="mail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Get My Free Guide</span>
+        `;
+    }
+}
+
+// Send data to Formspree
+async function sendToFormspree(email) {
+    const response = await fetch(CONFIG.formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            _subject: 'New Boat Show Guide Signup',
+            message: 'New subscriber for Annapolis Boat Show Guide'
+        })
+    });
+    
+    if (!response.ok) {
+        throw new Error('Failed to submit form');
+    }
+    
+    return response.json();
+}
+
+// Add to Mailchimp (optional)
+async function addToMailchimp(email) {
+    // This requires a server-side proxy or Mailchimp's embedded form
+    // For simplicity, we'll use a form post method
+    if (!CONFIG.mailchimpEnabled) return;
+    
+    const formData = new FormData();
+    formData.append('EMAIL', email);
+    
+    await fetch(CONFIG.mailchimpUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Required for Mailchimp
+    });
+}
+
+// Show success page
+function showSuccessPage() {
+    landingPage.classList.add('hidden');
+    successPage.classList.remove('hidden');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+    
+    // Track conversion (Google Analytics)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+            'value': 4.99,
+            'currency': 'USD'
+        });
+    }
+}
+
+// Event listeners
+submitBtn.addEventListener('click', handleSubmit);
+
+emailInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleSubmit();
+    }
+});
+
+// Google Analytics (optional)
+// Add your Google Analytics tracking code here
+/*
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+*/
+
+// Facebook Pixel (optional)
+/*
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+*/
